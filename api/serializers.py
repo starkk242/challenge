@@ -13,7 +13,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('url', 'email', 'first_name', 'last_name', 'password', 'profile')
+        fields = ('url', 'email', 'first_name', 'last_name', 'password','is_active' , 'is_superuser','is_staff', 'profile')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
