@@ -1,12 +1,11 @@
 from rest_framework import serializers
 from api.models import User
 
-
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'password','is_active' , 'is_superuser','is_staff')
+        fields = ('id','username', 'email', 'first_name', 'last_name', 'password','is_active' , 'is_superuser','is_staff')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
