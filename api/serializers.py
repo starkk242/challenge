@@ -21,5 +21,5 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         return instance
 
     def delete_user(self):
-        self.User.delete()
+        self.delete()
         return 
