@@ -18,10 +18,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     def update(self, instance, validated_data):
         instance.is_active = validated_data.get('is_active', instance.is_active)
         instance.save()
-        instance.is_staff = validated_data.get('is_staff', instance.is_staff)
-        instance.save()
-        instance.is_superuser = validated_data.get('is_superuser', instance.is_superuser)
-        instance.save()
         return instance
 
     def delete_user(self):
