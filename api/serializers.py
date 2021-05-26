@@ -15,10 +15,13 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user.save()
         return user
 
-    def update(self, instance, validated_data):
-        instance.is_active = validated_data.get('is_active', instance.is_active)
-        instance.save()
-        return instance
+    def update(self, user, validated_data):
+        user.is_active = validated_data.get('is_active', user.is_active)
+        user.save()
+        return user
+    
+    def multi_update(self,user):
+        return user
 
     def delete_user(self):
         self.delete()
